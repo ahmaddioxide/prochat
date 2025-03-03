@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "109604143270",
+    "project_id": "benji-f81a0",
+    "storage_bucket": "benji-f81a0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109604143270:android:be04dc5d59e0ad99733467",
+        "android_client_info": {
+          "package_name": "com.benjamin.prochat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7ZNX9Bz94SyhX_mHZZUezNPuBVhk3-60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
