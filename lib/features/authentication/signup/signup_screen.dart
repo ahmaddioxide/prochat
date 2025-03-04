@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:prochat/features/authentication/signin/signin_screen.dart';
 import 'package:prochat/features/authentication/signup/singup_controller.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -86,6 +87,33 @@ class SignupScreen extends StatelessWidget {
                     },
                   );
                 },
+              ),
+              SizedBox(
+                height: 14,
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Already have an account?',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontSize: 16,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.to(() => SigninScreen());
+                    },
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Spacer(),
               ElevatedButton(
