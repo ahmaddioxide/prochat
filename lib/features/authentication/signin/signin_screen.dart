@@ -63,6 +63,13 @@ class SigninScreen extends StatelessWidget {
                   );
                 },
               ),
+              Row(
+                children: [
+                  TextButton(onPressed: ()async {
+                    await signinController.forgetPassword();
+                  }, child: Text('Forgot Password?')),
+                ],
+              ),
               const SizedBox(height: 16),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(

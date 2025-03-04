@@ -62,4 +62,16 @@ class SignInController extends GetxController {
       Get.offAll(() => const HomeScreen());
     }
   }
+
+  Future<void> forgetPassword() async {
+    await FirebaseAuth.instance
+        .sendPasswordResetEmail(email: emailController.text.trim());
+    Get.snackbar(
+      'Success',
+      'Password reset email sent',
+      snackPosition: SnackPosition.BOTTOM,
+      colorText: CupertinoColors.white,
+      backgroundColor: CupertinoColors.systemGreen,
+    );
+  }
 }
