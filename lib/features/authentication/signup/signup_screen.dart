@@ -20,7 +20,8 @@ class SignupScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              const Text('Sign up to ProChat'),
+              const Text('Sign up to ProChat',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               const SizedBox(height: 16),
               TextFormField(
                 controller: signupController.nameController,
@@ -86,15 +87,34 @@ class SignupScreen extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(height: 16),
+              Spacer(),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                  minimumSize: const Size(double.infinity, 48),
+                ),
                 onPressed: () async {
                   if (signupController.formKey.currentState!.validate()) {
+                    signupController.isLoading.value = true;
                     await signupController.signUp();
+                    signupController.isLoading.value = false;
                   }
                 },
-                child: const Text('Sign Up'),
+                child: Obx(() {
+                  if (signupController.isLoading.value == true) {
+                    return SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: const CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      ),
+                    );
+                  }
+                  return Text('Sign Up',
+                      style: TextStyle(fontSize: 16, color: Colors.white));
+                }),
               ),
+              const SizedBox(height: 30),
             ],
           ),
         ),
