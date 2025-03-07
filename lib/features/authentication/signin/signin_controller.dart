@@ -59,7 +59,7 @@ class SignInController extends GetxController {
       //   colorText: CupertinoColors.white,
       //   backgroundColor: CupertinoColors.systemGreen,
       // );
-      Get.offAll(() => const HomeScreen());
+      Get.offAll(() =>  HomeScreen());
     }
   }
 

@@ -75,7 +75,7 @@ class SignupController extends GetxController {
         name: nameController.text.trim(),
         email: emailController.text.trim(),
       ).then((value) {
-        Get.offAll(() => const HomeScreen());
+        Get.offAll(() =>  HomeScreen());
         // Get.snackbar(
         //   'Success',
         //   'User created successfully',

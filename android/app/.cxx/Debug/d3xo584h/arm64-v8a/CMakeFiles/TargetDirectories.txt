@@ -1,0 +1,2 @@
+/Users/ahmad/development/freelance/prochat/android/app/.cxx/Debug/d3xo584h/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/ahmad/development/freelance/prochat/android/app/.cxx/Debug/d3xo584h/arm64-v8a/CMakeFiles/rebuild_cache.dir
