@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prochat/features/authentication/signin/signin_controller.dart';
-import 'package:prochat/features/authentication/signup/singup_controller.dart';
 
 class SigninScreen extends StatelessWidget {
   SigninScreen({super.key});
@@ -65,9 +64,11 @@ class SigninScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  TextButton(onPressed: ()async {
-                    await signinController.forgetPassword();
-                  }, child: Text('Forgot Password?')),
+                  TextButton(
+                      onPressed: () async {
+                        await signinController.forgetPassword();
+                      },
+                      child: Text('Forgot Password?')),
                 ],
               ),
               const SizedBox(height: 16),

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prochat/features/authentication/signup/signup_screen.dart';
+import 'package:prochat/features/chatting/chat_screen.dart';
 import 'package:prochat/features/home/home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -29,14 +30,42 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Cancel'),
+                    child: Text('Cancel', style: TextStyle(color: Colors.red)),
                   ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text('Ok'),
-                  ),
+                  Obx(() {
+                    return TextButton(
+                      onPressed: () {
+                        if (homeController.emailExists.value != true) {
+                          return;
+                        }
+
+                        final userId = homeController.userId.value;
+
+                        if (userId.isEmpty) {
+                          Get.snackbar('Error', 'User ID is empty');
+                          return;
+                        }
+
+                        Get.back();
+
+                        Get.to(
+                          () => ChatScreen(
+                            userId: userId,
+                            userEmail: homeController.userEmail.value,
+                            userName: homeController.userName.value,
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Ok',
+                        style: TextStyle(
+                          color: homeController.emailExists.value
+                              ? Colors.purple
+                              : Colors.grey,
+                        ),
+                      ),
+                    );
+                  }),
                 ],
                 // contentPadding: EdgeInsets.all(40),
                 content: Column(
